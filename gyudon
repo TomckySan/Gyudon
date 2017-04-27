@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/src/Commands.php';
+
+$cmd = new Commands($argv[1]);
+$cmd->execute();
