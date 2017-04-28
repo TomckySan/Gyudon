@@ -3,4 +3,4 @@
 
 require_once __DIR__.'/src/Commands.php';
 
-Commands::execute($argv[1]);
+Commands::execute($argv[1], array_slice($argv, 2));
