@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 class Authorization
 {
@@ -18,8 +18,8 @@ class Authorization
         $user = $this->getUser();
         $pass = $this->getPass();
 
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('POST', "https://{$host}/oauth/token", [
+        $guzzleClient = new \GuzzleHttp\Client();
+        $res = $guzzleClient->request('POST', "https://{$host}/oauth/token", [
             'form_params' => [
                 'client_id' => $this->clientId,
                 'client_secret' => $this->clientSecret,
@@ -44,8 +44,8 @@ class Authorization
 
     private function registerApp($host)
     {
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('POST', "https://{$host}/api/v1/apps", [
+        $guzzleClient = new \GuzzleHttp\Client();
+        $res = $guzzleClient->request('POST', "https://{$host}/api/v1/apps", [
             'form_params' => [
                 'client_name' => self::APP_NAME,
                 'redirect_uris' => 'urn:ietf:wg:oauth:2.0:oob',
