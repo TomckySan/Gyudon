@@ -39,15 +39,7 @@ class Commands
                 'limit' => count($options) ? $options[0] : 20,
             ],
         ]);
-        $timeLines = json_decode($res->getBody());
-        foreach($timeLines as $tl) {
-            $userName = $tl->account->username;
-            $displayName = $tl->account->display_name;
-            $content = $tl->content;
-            $pattern = '/<("[^"]*"|\'[^\']*\'|[^\'">])*>/';
-            $msg = View::color((empty($displayName) ? $userName : $displayName),'33').PHP_EOL . View::color(preg_replace($pattern, '', $content));
-            View::puts($msg);
-        }
+        View::timeline(json_decode($res->getBody()));
     }
 
     private static function toot($options)
