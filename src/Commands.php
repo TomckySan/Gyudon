@@ -61,4 +61,38 @@ class Commands
         ]);
         View::status(json_decode($res->getBody()));
     }
+
+    private static function bt($options)
+    {
+        if (empty($options)) {
+            echo "Please input id. (For example, 'gyudon bt 12345')";
+            return;
+        }
+
+        $obj = Yaml::parse(file_get_contents(__DIR__.'/../config/secret.yml'));
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('POST', "https://{$obj['host']}/api/v1/statuses/{$options[0]}/reblog", [
+            'headers' => [
+                'Authorization' => "Bearer {$obj['access_token']}",
+            ],
+        ]);
+        View::status(json_decode($res->getBody()));
+    }
+
+    private static function fav($options)
+    {
+        if (empty($options)) {
+            echo "Please input id. (For example, 'gyudon bt 12345')";
+            return;
+        }
+
+        $obj = Yaml::parse(file_get_contents(__DIR__.'/../config/secret.yml'));
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('POST', "https://{$obj['host']}/api/v1/statuses/{$options[0]}/favourite", [
+            'headers' => [
+                'Authorization' => "Bearer {$obj['access_token']}",
+            ],
+        ]);
+        View::status(json_decode($res->getBody()));
+    }
 }

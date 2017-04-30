@@ -4,7 +4,7 @@ class View
 {
     public static function timeline($lines)
     {
-        foreach ($lines as $l) {
+        foreach (array_reverse($lines) as $l) {
             self::extractDisplayData($l);
         }
     }
@@ -54,8 +54,8 @@ class View
         $result .= "(@{$data['acct']}) ";
         $result .= "[{$data['createdAt']}] ";
         if (!is_null($data['rebloggedBy'])) $result .= "(reblogged by @{$data['rebloggedBy']}) ";
-        $result .= self::color("{$data['reblogsCount']}Boosts ", '32');
-        $result .= self::color("{$data['favouritesCount']}Favs ", '31');
+        $result .= self::color("{$data['reblogsCount']} BTs ", '32');
+        $result .= self::color("{$data['favouritesCount']} FAVs ", '31');
         $result .= PHP_EOL;
         // displayName (@acct) [createAt] (reblogged by @acct) reblogsCount favouritesCount
 
