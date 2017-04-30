@@ -48,10 +48,23 @@ Posting new status:
 $ gyudon toot "I want to eat Gyudon."
 ```
 
-## TODO
+### bt
 
-* `bt` command
-* `fav` command
+Reblogging a status:
+
+```
+$ gyudon bt 12345
+```
+
+### fav
+
+Favouriting a status:
+
+```
+$ gyudon fav 12345
+```
+
+## TODO
 
 ## License
 
