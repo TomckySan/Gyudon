@@ -23,6 +23,7 @@ class View
             'rebloggedBy' => is_null($line->reblog) ? null : $line->account->acct,
             'reblogsCount' => self::getTargetObject($line)->reblogs_count,
             'favouritesCount' => self::getTargetObject($line)->favourites_count,
+            'id' => self::getTargetObject($line)->id,
             'content' => self::rmHtmlTags(self::getTargetObject($line)->content),
         ];
         self::outputLine($data);
@@ -58,6 +59,7 @@ class View
         $result .= PHP_EOL;
         // displayName (@acct) [createAt] (reblogged by @acct) reblogsCount favouritesCount
 
+        $result .= self::color("[ID:{$data['id']}] ", '36');
         $result .= "{$data['content']}";
         $result .= PHP_EOL.PHP_EOL;
         // content
