@@ -27,7 +27,7 @@ Input mastodon instance url, email and password for login.
 
 ## Usage
 
-### `timeline`
+### timeline
 
 Retrieving recent posts from timeline:
 
