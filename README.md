@@ -40,9 +40,18 @@ You can specify the number of posts to get.
 $ gyudon timeline 10
 ```
 
+### toot
+
+Posting new status:
+
+```
+$ gyudon toot "I want to eat Gyudon."
+```
+
 ## TODO
 
-* `toot` command
+* `bt` command
+* `fav` command
 
 ## License
 

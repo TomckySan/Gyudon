@@ -6,7 +6,7 @@ class Authorization
 {
     const APP_NAME = 'Gyudon';
     const WEBSITE = 'https://github.com/TomckySan/Gyudon';
-    const SCOPES = 'read';
+    const SCOPES = 'read write';
 
     private $clientId;
     private $clientSecret;

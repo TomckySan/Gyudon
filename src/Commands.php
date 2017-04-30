@@ -44,6 +44,21 @@ class Commands
 
     private static function toot($options)
     {
-        // TODO
+        if (empty($options)) {
+            echo "Please input text. (For example, 'gyudon toot \"I want to eat Gyudon.\"')";
+            return;
+        }
+
+        $obj = Yaml::parse(file_get_contents(__DIR__.'/../config/secret.yml'));
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('POST', "https://{$obj['host']}/api/v1/statuses", [
+            'headers' => [
+                'Authorization' => "Bearer {$obj['access_token']}",
+            ],
+            'form_params' => [
+                'status' => $options[0],
+            ],
+        ]);
+        View::status(json_decode($res->getBody()));
     }
 }

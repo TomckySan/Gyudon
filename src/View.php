@@ -9,6 +9,11 @@ class View
         }
     }
 
+    public static function status($l)
+    {
+        self::extractDisplayData($l);
+    }
+
     private static function extractDisplayData($line)
     {
         $data = [
