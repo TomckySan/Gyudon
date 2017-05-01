@@ -56,6 +56,8 @@ Reblogging a status:
 $ gyudon bt 12345
 ```
 
+The number is status id.
+
 ### fav
 
 Favouriting a status:
@@ -63,6 +65,8 @@ Favouriting a status:
 ```
 $ gyudon fav 12345
 ```
+
+The number is status id.
 
 ## TODO
 
