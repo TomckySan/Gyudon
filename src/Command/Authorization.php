@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../../vendor/autoload.php';
 
 class Authorization
 {
@@ -31,7 +31,7 @@ class Authorization
         ]);
         $obj = json_decode($res->getBody());
         $accessToken = $obj->access_token;
-        $path = __DIR__.'/../config/secret.yml';
+        $path = __DIR__.'/../../config/secret.yml';
         $dir = dirname($path);
         if (!is_dir($dir)) {
             mkdir($dir);
